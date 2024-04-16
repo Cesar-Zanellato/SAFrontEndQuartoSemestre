@@ -1,0 +1,16 @@
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    background-color: #f0f0f0;
+    padding: 10px 0; /* Adjust padding to remove horizontal padding */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin: 0; /* Remove default margin */
+  }
+  
+  .navbar a {
+    color: #333;
+    text-decoration: none;
+    padding: 10px;
+    font-weight: bold;
+  }
+  

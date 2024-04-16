@@ -1,0 +1,20 @@
+.footer {
+    background-color: #191919; /* Dark gray background */
+    color: #fff;
+    padding: 20px 0; /* Adjust padding to remove horizontal padding */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0; /* Remove default margin */
+  }
+  
+  .footer .footer-content,
+  .footer .footer-address,
+  .footer .footer-rights {
+    margin-right: 20px;
+  }
+  
+  .footer .footer-content p {
+    margin: 5px 0; /* Reduce margin between p tags */
+  }
+  
