@@ -1,11 +1,11 @@
 .header {
-  height: 55px;
+  height: 74px;
   background-color: #9F0000;
   padding: 10px 0; 
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  border-radius: 0px 0px 8px 8px;
+  border-radius: 0px 0px 16px 16px;
   margin: 0;
 }
 .section_logo{
@@ -22,7 +22,7 @@
   width: 300px;
 }
 .input_pesquisar{
-  height: 15px;
+  height: 10px;
   width: 290px;
   border-radius: 15px;
   padding: 10px;

@@ -1,6 +1,14 @@
 import React from 'react';
 import './Products.css';
 
+let produtos =[
+  {
+    name: "Cesar",
+    price: 10,
+    
+  } 
+]
+
 function Products({ products }) {
   return (
     <div className="products-container">
