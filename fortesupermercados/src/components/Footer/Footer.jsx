@@ -4,17 +4,22 @@ import './Footer.css';
 function Footer() {
   return (
     <footer className="footer">
-      <div className="footer-content">
-        <p>Horário de Funcionamento: Seg - Sex, 8:00 - 18:00</p>
-        <p>Contato: (00) 1234-5678</p>
-        <p>Email: contato@supermarket.com</p>
+
+      <div className="topFooter">
+
       </div>
-      <div className="footer-address">
-        <p>Rua Exemplo, 123, Cidade - Estado</p>
+
+      <div className="titulos">
+            <h2 className='tituloHorario'>Horário de Atendimento</h2>
+            <h2 className='tituloLocalização'>Localização</h2>
+            <h2>Horário de Atendimento</h2> 
       </div>
-      <div className="footer-rights">
-        <p>© 2024 Supermarket E-commerce. Todos os direitos reservados.</p>
+
+      <div className='subTitulo'>
+        <h2 className='subMercado'>Mercado</h2>
+        <h2 className='subDelivery'>Delivery</h2>
       </div>
+
     </footer>
   );
 }
