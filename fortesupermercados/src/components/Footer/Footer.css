@@ -17,9 +17,25 @@
     display: flex;
     width: 100%;
     height: 70px;
-    background-color: #000000;
+    background-color:  #191919;
     align-items: center;
     justify-content: space-evenly;
+  }
+
+  .tituloHorario{
+    font-size: 110%;
+    color: #ffffff;
+    margin-right: 70px;
+  }
+
+  .tituloLocalização{
+    font-size: 110%;
+    color: #ffffff;
+  }
+
+  .tituloEndereço{
+    font-size: 110%;
+    color: #ffffff;
   }
 
   h2{
@@ -28,14 +44,14 @@
   }
 
   .subTitulo{
-    margin-left: 178px;
+    color: #9b2323;
+    margin-left: 155px;
     margin-top: 20px;
-    width: 20%;
+    width: 25%;
     height: 30px;
-    
+    /*background-color: #e7dfdf;*/
     align-items: center;
     justify-content: space-between;
-    
     display: flex;
   }
   

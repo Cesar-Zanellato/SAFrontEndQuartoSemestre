@@ -10,14 +10,18 @@ function Footer() {
       </div>
 
       <div className="titulos">
-            <h2 className='tituloHorario'>Horário de Atendimento</h2>
-            <h2 className='tituloLocalização'>Localização</h2>
-            <h2>Horário de Atendimento</h2> 
+        <h2 className='tituloHorario'>Horário de Atendimento</h2>
+        <h2 className='tituloLocalização'>Localização</h2>
+        <h2 className='tituloEndereço'>Endereço</h2> 
       </div>
 
       <div className='subTitulo'>
         <h2 className='subMercado'>Mercado</h2>
         <h2 className='subDelivery'>Delivery</h2>
+      </div>
+
+      <div className='divTextos'>
+        
       </div>
 
     </footer>
