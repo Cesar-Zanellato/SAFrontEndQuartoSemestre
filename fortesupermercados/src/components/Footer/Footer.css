@@ -54,4 +54,104 @@
     justify-content: space-between;
     display: flex;
   }
+
+  .divTextos{
+    width: 100%;
+    height: 100px;
+    /* background-color: #000000; */
+    display: flex;;
+    align-items: center;
+    
+  }
+
+  .divHoraMercado{
+    margin-left: 3.5%;
+    width: 20%;
+    height: 100px;
+    /* background-color: #f3e7e7; */
+    display: flex;
+    flex-direction: column;
+
+  }
+
+  .divHoraDelivery{
+    width: 20%;
+    height: 100px;
+    /* background-color: #a70505; */
+
+  }
+
+  .divFaleConosco{
+    padding-left: 0.6%;
+    margin-left: 3.5%;
+    width: 20%;
+    height: 100px;
+    /* background-color: #4f3e8f; */
+
+  }
+
+  .divEndereço{
+
+    margin-left: 3.2%;
+    width: 20%;
+    height: 100px;
+    background-color: #9e4040;
+
+  }
+
+  .divSegSab{
+    align-items: center;
+    
+    display: flex;
+    width: 100%;
+    height: 22px;
+    /* background-color: #080080; */
+
+  }
+
+  .divDom{
+    
+    align-items: center;
+    
+    display: flex;
+    width: 100%;
+    height: 22px;
+    /* background-color: #800000; */
+
+  }
+
+  .textSegSab{
+    font-size: 14px;
+  }
+
+  .relogio{
+    margin-left: 4%;
+    height: 20px;
+    width: 20px;
+  }
+
+  .telefone{
+
+    height: 16px;
+    width: 18px;
+
+  }
+
+  .email{
+
+    height: 14px;
+    width: 20px;
+
+  }
+
+.divTextEndereço{
+  align-items: center;
+    
+    display: flex;
+    width: 100%;
+    height: 50px;
+   background-color: #080080; 
+}
+
+
   
