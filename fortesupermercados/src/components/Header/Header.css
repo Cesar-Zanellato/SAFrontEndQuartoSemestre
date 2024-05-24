@@ -38,13 +38,37 @@ color: #a02424;
 
 
 .section_btns_user{
-  width: 10%;
-  margin-right: 5%;
+  align-items: center;
+  margin-right: 6%;
+  width: 18%;
+  height: 35px;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  /* background-color: #974343; */
+  
 }
-.section_btns_user img{
-  height: 25px;
+
+
+.carrinhoIcon{
+  margin-top: 6%;
+  height: 33px;
   width: auto; 
+
+
+}
+.usuarioIcon{
+  height: 33px;
+  width: auto; 
+  
+}
+
+.logoutIcon{
+  
+  
+  height: 33px;
+  width: auto; 
+}
+
+.linkInconUser{
+  margin-left: 33%;
+  margin-right: 33%;
 }

@@ -63,15 +63,19 @@ function Footer() {
         </div>
 
         <div className='divEndereço'>
-        <div className='divTextEndereço'>
-          <img className='telefone' src="./public/telefone.png" alt="Relegio" />
-            <p className='textSegSab'>Rua Leonel Pereira, 99 Cachoeira do Bom Jesus,
-CEP-88056-300, Florianópolis - Santa Catarina - Brasil </p>
+
+          <div className='divTextEndereço'>
+
+            <div className='divImgEndereço'>
+                <img className='localizaçãoEndereço' src="./public/localização.png" alt="Relegio" />
+            </div>
+              <p className='textSegSab'>Rua Leonel Pereira, 99 Cachoeira do Bom Jesus,
+              CEP-88056-300, Florianópolis - Santa Catarina - Brasil </p>
           </div>
 
           <div className='divDom'>
-            <img className='email' src="./public/email.png" alt="Relegio" />
-            <p className='textSegSab'>contato@fortesupermercados.com.br  </p>
+            <img className='localização' src="./public/localização.png" alt="Relegio" />
+            <p className='textSegSab'>CNPJ: 77884070/0001-84  </p>
           </div>
         </div>
 
