@@ -64,10 +64,10 @@ const Register = () => {
           <label>Nome do Responsável</label>
           <input type="text" className="form-input" />
         </div>
-        <div className="form-group">
+        {/* <div className="form-group">
           <label>Sobrenome do Responsável</label>
           <input type="text" className="form-input" />
-        </div>
+        </div> */}
         <div className="form-group">
           <label>Data de Nascimento</label>
           <input type="date" className="form-input" />

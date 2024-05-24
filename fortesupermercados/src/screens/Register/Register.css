@@ -26,14 +26,30 @@
   }
   
   .form-input {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #9F0000;
-    border-radius: 3px;
-    box-sizing: border-box;
-    background-color: #191919;
-    color: #fff;
+    font-size: 16px;
+    -webkit-appearance: none;  /* Remove o estilo padrão no Safari e Chrome */
+    -moz-appearance: none;     /* Remove o estilo padrão no Firefox */
+    appearance: none;          /* Remove o estilo padrão nos navegadores compatíveis */
+    border: none;              /* Remove a borda */
+    padding: 0;                /* Remove o padding */
+    margin: 0;                 /* Remove a margem */
+    background: none;          /* Remove a cor de fundo */
+    box-shadow: none;          /* Remove as sombras */
+    outline: none; 
+    height: 20px;
+    width: 90%;
+    border-radius: 15px;
+    background: linear-gradient( #191919 80%, #640000);
+    padding-left:5%;
+    padding-bottom: 0.8%;
+    color: #ffffff;
+    
+    
   }
+
+  .form-input::placeholder{
+    color: #ffffff6c;
+    }
   
   .submit-button {
     background-color: #E0E0E0;
