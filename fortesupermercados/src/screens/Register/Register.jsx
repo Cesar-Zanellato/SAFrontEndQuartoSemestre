@@ -1,18 +1,45 @@
 import React, { useState } from 'react';
 import './Register.css';
+import axios from 'axios'
 
 const Register = () => {
   const [cpf, setCpf] = useState('');
   const [phone, setPhone] = useState('');
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [passwordsMatch, setPasswordsMatch] = useState(true);
+
+  const saveUser = async () => {
+
+    const user = {
+
+      cpf,
+      name,
+      email,
+      phone,
+      password,
+
+    }
+    await axios.post("http://localhost:8090/users", user )
+  }
 
   const handleCpfChange = (e) => {
     const value = e.target.value.replace(/\D/g, '');
     if (value.length <= 11) {
       setCpf(value);
     }
+  };
+
+  const handleNameChange = (e) => {
+    setName(e.target.value);
+    
+  };
+
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+    
   };
 
   const handlePhoneChange = (e) => {
@@ -50,6 +77,8 @@ const Register = () => {
   return (
     <div className="cadastro-container">
       <form className="cadastro-form">
+        
+        
         <div className="form-group">
           <label>CPF</label>
           <input
@@ -60,18 +89,25 @@ const Register = () => {
             placeholder="___.___.___-__"
           />
         </div>
+
+
         <div className="form-group">
           <label>Nome do Responsável</label>
-          <input type="text" className="form-input" />
+          <input
+           type="text" 
+           className="form-input"
+           value={name}
+           onChange={handleNameChange} />
         </div>
-        {/* <div className="form-group">
-          <label>Sobrenome do Responsável</label>
-          <input type="text" className="form-input" />
-        </div> */}
+
+
         <div className="form-group">
           <label>Data de Nascimento</label>
           <input type="date" className="form-input" />
         </div>
+
+
+
         <div className="form-group">
           <label>Celular</label>
           <input
@@ -82,10 +118,20 @@ const Register = () => {
             placeholder="(__) _____-____"
           />
         </div>
+
+
+
         <div className="form-group">
           <label>E-mail</label>
-          <input type="email" className="form-input" />
+          <input 
+          type="email" 
+          className="form-input"
+          value={email}
+          onChange={handleEmailChange} />
         </div>
+
+
+
         <div className="form-group">
           <label>Senha</label>
           <input
@@ -95,6 +141,9 @@ const Register = () => {
             onChange={handlePasswordChange}
           />
         </div>
+
+
+
         <div className="form-group">
           <label>Confirmar Senha</label>
           <input
@@ -107,9 +156,13 @@ const Register = () => {
         {!passwordsMatch && (
           <div className="error-message">Senhas não coincidem</div>
         )}
-        <button type="submit" className="submit-button" disabled={!passwordsMatch}>
+
+
+        <button onClick={saveUser} type='button' className="submit-button" disabled={!passwordsMatch}>
           Concluir
         </button>
+
+
       </form>
     </div>
   );
