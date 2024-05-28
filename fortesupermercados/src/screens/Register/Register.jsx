@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Register.css';
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
   const [cpf, setCpf] = useState('');
@@ -11,18 +12,27 @@ const Register = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [passwordsMatch, setPasswordsMatch] = useState(true);
 
+  const navigate = useNavigate()
+
   const saveUser = async () => {
+    try {
 
-    const user = {
 
-      cpf,
-      name,
-      email,
-      phone,
-      password,
+      const user = {
+        cpf,
+        name,
+        email,
+        phone,
+        password,
+      }
 
+      await axios.post("http://localhost:8080/users", user)
+      navigate('/login')
     }
-    await axios.post("http://localhost:8090/users", user )
+
+    catch {
+      alert('erro')
+    }
   }
 
   const handleCpfChange = (e) => {
@@ -34,12 +44,12 @@ const Register = () => {
 
   const handleNameChange = (e) => {
     setName(e.target.value);
-    
+
   };
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
-    
+
   };
 
   const handlePhoneChange = (e) => {
@@ -77,8 +87,8 @@ const Register = () => {
   return (
     <div className="cadastro-container">
       <form className="cadastro-form">
-        
-        
+
+
         <div className="form-group">
           <label>CPF</label>
           <input
@@ -94,10 +104,10 @@ const Register = () => {
         <div className="form-group">
           <label>Nome do Responsável</label>
           <input
-           type="text" 
-           className="form-input"
-           value={name}
-           onChange={handleNameChange} />
+            type="text"
+            className="form-input"
+            value={name}
+            onChange={handleNameChange} />
         </div>
 
 
@@ -123,11 +133,11 @@ const Register = () => {
 
         <div className="form-group">
           <label>E-mail</label>
-          <input 
-          type="email" 
-          className="form-input"
-          value={email}
-          onChange={handleEmailChange} />
+          <input
+            type="email"
+            className="form-input"
+            value={email}
+            onChange={handleEmailChange} />
         </div>
 
 

@@ -1,9 +1,20 @@
 import React from 'react';
 import './Header.css';
 import Navbar from '../Navbar/Navbar';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function Header() {
+
+  const token = localStorage.getItem("token")
+  console.log(token)
+  const navigate = useNavigate()
+
+  function logout(){
+    localStorage.clear()
+    navigate("/login")
+  }
+
+
   return (
     <header className="header">
       <section className="section_logo">
@@ -27,9 +38,11 @@ function Header() {
           <img className='usuarioIcon'  src="./public/usuario.png" alt="USUÁRIO"/>
         </Link>
 
-        <Link to= "/login">
+        {token != null ? <div onClick={logout}>
           <img className='logoutIcon' src="./public/logout.png" alt="USUÁRIO"/>
-        </Link>
+        </div>: ""}
+        
+        
 
          
       </section>
