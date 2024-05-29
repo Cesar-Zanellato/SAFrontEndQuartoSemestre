@@ -6,11 +6,15 @@ import { Link, useNavigate } from 'react-router-dom';
 function Header() {
 
   const token = localStorage.getItem("token")
-  console.log(token)
+ 
   const navigate = useNavigate()
 
   function logout(){
     localStorage.clear()
+    navigate("/login")
+  }
+
+  function cadastrarLogar(){
     navigate("/login")
   }
 
@@ -34,17 +38,20 @@ function Header() {
          <img className='carrinhoIcon' src="./public/carrinho.png" alt="CARRINHO"/>
         </Link>
         
-        <Link className='linkInconUser' to="/profile">
+        {token != null &&<Link  className='linkInconUser' to="/profile">
           <img className='usuarioIcon'  src="./public/usuario.png" alt="USUÁRIO"/>
-        </Link>
+        </Link>}
+        
 
         {token != null ? <div onClick={logout}>
           <img className='logoutIcon' src="./public/logout.png" alt="USUÁRIO"/>
         </div>: ""}
+
         
+        {token == null && <p onClick={cadastrarLogar} className='registrarText'>Entre ou Cadastre-se</p>}
         
 
-         
+
       </section>
     </header>
   );

@@ -3,6 +3,8 @@ import Header from '../../components/Header/Header'
 import { Link, useNavigate } from 'react-router-dom';
 import React, { useState } from 'react';
 import axios from 'axios'
+import { TextField } from '@mui/material';
+
 
 
 function Login(){
@@ -46,23 +48,31 @@ function Login(){
                     <img className='logoSuperLogin' src="./public/logo_supermercado.png" alt="" />
                 </div>
 
-                <div className='divInputEmail'>
+
+                <TextField variant="standard" label="E-mail">
+
+                </TextField>
+                {/* <div className='divInputEmail'>
                     <input 
                     placeholder='E-mail'  
                     className='inputEmail' 
                     type="text"
                     value={email}
                     onChange={handleEmailChange} />
-                </div>
+                </div> */}
 
-                <div className='divInputSenha'>
+                {/* <div className='divInputSenha'>
                     <input 
                     placeholder='Senha' 
                     className='inputSenha' 
                     type="text"
                     value={password}
                     onChange={handlePasswordChange}/>
-                </div>
+                </div> */}
+
+                <TextField variant="standard" label="Senha">
+
+                </TextField>
 
                 <div className='divBotoes'>
 
@@ -72,9 +82,9 @@ function Login(){
                     </div>
                     
                     <Link  to="/register" className='botaoCadastrar'>
-                    <div>
-                        <p className='cadastrarParag'>Cadastrar</p>
-                    </div>
+                        <div>
+                            <p className='cadastrarParag'>Cadastrar</p>
+                        </div>
                     </Link>
                     
 
