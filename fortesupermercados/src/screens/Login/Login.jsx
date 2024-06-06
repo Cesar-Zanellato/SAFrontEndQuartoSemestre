@@ -49,30 +49,26 @@ function Login(){
                 </div>
 
 
-                <TextField variant="standard" label="E-mail">
-
-                </TextField>
-                {/* <div className='divInputEmail'>
+                
+                <div className='divInputEmail'>
                     <input 
                     placeholder='E-mail'  
                     className='inputEmail' 
                     type="text"
                     value={email}
                     onChange={handleEmailChange} />
-                </div> */}
+                </div> 
 
-                {/* <div className='divInputSenha'>
+                <div className='divInputSenha'>
                     <input 
                     placeholder='Senha' 
                     className='inputSenha' 
                     type="text"
                     value={password}
                     onChange={handlePasswordChange}/>
-                </div> */}
+                </div> 
 
-                <TextField variant="standard" label="Senha">
-
-                </TextField>
+               
 
                 <div className='divBotoes'>
 

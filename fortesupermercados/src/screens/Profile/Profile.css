@@ -1,26 +1,30 @@
-.profile-container {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  margin-top: 1%;
-  margin-bottom: 1%;
+.container{
+
+
+  background-color: rgb(226, 25, 25); 
+  height: 560px;
 }
 
-.personal-info,
-.address-info {
-  background-color: white;
-  border: 2px solid red;
-  padding: 20px;
-  width: 45%;
-}
-
-.column {
+.personal-info{
+  border-style: solid;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+    border-radius: 20px;
+    width: 30%;
+    height: 70%;
+    background-color: rgb(255, 255, 255);
+    border-color: #9e0000da;
+    border-width: 5px 5px 5px 5px;
 }
+
+.divPessoalEndereço{
+  display: flex;
+    width: 30%;
+    height: 7%;
+    background-color: #ffffffda;
+
+}
+
 
 .info-item {
   display: flex;
