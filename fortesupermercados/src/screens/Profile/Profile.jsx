@@ -27,7 +27,6 @@ const Profile = () => {
 
     const saveChanges = () => {
         setIsEditing(false);
-        // Save changes to a server or local storage if needed
     };
 
     return (
