@@ -1,60 +1,82 @@
-.container{
-
-
-  background-color: rgb(226, 25, 25); 
-  height: 560px;
-}
-
-.personal-info{
-  border-style: solid;
+.profile-container {
+  width: 50%;
+  margin: auto;
+  padding: 20px;
+  border: 4px solid #c62828;
+  border-radius: 10px;
+  min-height: 400px; /* Ensure the minimum height to keep the box size consistent */
   display: flex;
   flex-direction: column;
-    border-radius: 20px;
-    width: 30%;
-    height: 70%;
-    background-color: rgb(255, 255, 255);
-    border-color: #9e0000da;
-    border-width: 5px 5px 5px 5px;
+  margin-top: 3%;
+  margin-bottom: 5%
+
 }
 
-.divPessoalEndereço{
+.tabs {
   display: flex;
-    width: 30%;
-    height: 7%;
-    background-color: #ffffffda;
-
+  justify-content: space-between;
+  margin-bottom: 20px;
 }
 
+.tabs span {
+  cursor: pointer;
+  padding: 10px 20px;
+  border-bottom: 2px solid transparent;
+}
+
+.tabs .active {
+  border-bottom: 2px solid #c62828;
+}
+
+.personal-info, .address-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.personal-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.address-info {
+  text-align: center;
+}
 
 .info-item {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 .info-item label {
+  display: block;
+  font-weight: bold;
   margin-bottom: 5px;
-  color: black;
+}
+
+.info-item input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
 .buttons {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   margin-top: 20px;
 }
 
-.edit-button, .save-button {
-  background-color: #007bff;
-  border: none;
+.buttons button {
+  background-color: #c62828;
   color: white;
   padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
 }
 
-.save-button {
-  background-color: #28a745;
+.buttons button:hover {
+  background-color: #b71c1c;
 }
 
-.edit-button:hover, .save-button:hover {
-  opacity: 0.8;
-}
