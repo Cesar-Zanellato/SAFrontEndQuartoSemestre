@@ -4,7 +4,7 @@ export const UsuariosContext = createContext();
 
 export const UsuariosContextProvider = ({children}) => {
 let autor = 'Alan Patrick'
-const  [usuarioLogado, setUsuarioLogado] = useState("");
+const  [usuarioLogado, setUsuarioLogado] = useState("Dalessandro");
 
     return (
         <UsuariosContext.Provider value={{autor , usuarioLogado, setUsuarioLogado}}>

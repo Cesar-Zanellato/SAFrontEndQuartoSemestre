@@ -1,7 +1,7 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import './Profile.css';
 import { UsuariosContext } from '../../contexts/GlobalContext';
-
+import axios from 'axios'
 
 const Profile = () => {
     const [view, setView] = useState('personal');
@@ -17,6 +17,28 @@ const Profile = () => {
         rua: 'Rua Imbui',
         referencia: 'Ao lado do MiniMercado Weber'
     });
+
+    const { usuarioLogado, setUsuarioLogado } = useContext(UsuariosContext);
+
+
+      useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get("http://localhost:8080/users/1");
+        setUsuarioLogado(response.data);
+      } catch (error) {
+        console.error('Erro ao buscar usuário:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+    // useEffect(async () => {
+    //     console.log(usuarioLogado);
+    // },[usuarioLogado])
+
+
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;

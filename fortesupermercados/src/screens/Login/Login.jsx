@@ -10,6 +10,7 @@ import {jwtDecode} from 'jwt-decode'
 
 
 
+
 function Login(){
    
     const { usuarioLogado, setUsuarioLogado } = useContext(UsuariosContext);
@@ -25,8 +26,12 @@ function Login(){
         const decoded = jwtDecode(token);
 
         // Acessa o ID contido no token
+
         const userId = decoded.sub; // ou decoded.id, dependendo de onde o ID está armazenado
         console.log('User ID:', userId);
+        return userId
+
+        
     } catch (err) {
         console.error('Erro ao decodificar o token:', err);
     }
@@ -42,10 +47,11 @@ function Login(){
           }
           const token = await axios.post("http://localhost:8080/login", user )
           localStorage.setItem('token', token.data)
+           
+          let userName = decodeToken(token.data)
           
-        decodeToken(token.data)
-          
-          
+          setUsuarioLogado(userName)
+
           navigate('/')
       }catch{
         alert('erro')

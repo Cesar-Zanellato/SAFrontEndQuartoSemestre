@@ -1,10 +1,13 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import './Header.css';
 import Navbar from '../Navbar/Navbar';
 import { Link, useNavigate } from 'react-router-dom';
+import { UsuariosContext } from '../../contexts/GlobalContext';
+
+
 
 function Header() {
-
+  const { usuarioLogado, setUsuarioLogado } = useContext(UsuariosContext);
   const token = localStorage.getItem("token")
  
   const navigate = useNavigate()
@@ -34,6 +37,8 @@ function Header() {
       </section>
       <section className="section_btns_user">
 
+        {/* <label htmlFor="">{!!usuarioLogado && }</label> */}
+        {usuarioLogado}
         <Link to="shop">
          <img className='carrinhoIcon' src="./public/carrinho.png" alt="CARRINHO"/>
         </Link>
