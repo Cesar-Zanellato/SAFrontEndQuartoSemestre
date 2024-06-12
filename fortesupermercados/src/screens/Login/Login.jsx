@@ -1,20 +1,40 @@
 import './Login.css'
 import Header from '../../components/Header/Header'
 import { Link, useNavigate } from 'react-router-dom';
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import axios from 'axios'
-import { TextField } from '@mui/material';
+import { UsuariosContext } from '../../contexts/GlobalContext';
+import {jwtDecode} from 'jwt-decode'
+
+
 
 
 
 function Login(){
-
+   
+    const { usuarioLogado, setUsuarioLogado } = useContext(UsuariosContext);
     const navigate = useNavigate()
     const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  
+
+  function decodeToken(token) {
+    try {
+        // Decodifica o payload do token
+        const decoded = jwtDecode(token);
+
+        // Acessa o ID contido no token
+        const userId = decoded.sub; // ou decoded.id, dependendo de onde o ID está armazenado
+        console.log('User ID:', userId);
+    } catch (err) {
+        console.error('Erro ao decodificar o token:', err);
+    }
+}
   const loginUser = async () => {
       
+
+
       try{
         const user = {
             email,
@@ -22,6 +42,10 @@ function Login(){
           }
           const token = await axios.post("http://localhost:8080/login", user )
           localStorage.setItem('token', token.data)
+          
+        decodeToken(token.data)
+          
+          
           navigate('/')
       }catch{
         alert('erro')

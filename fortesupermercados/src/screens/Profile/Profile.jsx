@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import './Profile.css';
+import { UsuariosContext } from '../../contexts/GlobalContext';
+
 
 const Profile = () => {
     const [view, setView] = useState('personal');
