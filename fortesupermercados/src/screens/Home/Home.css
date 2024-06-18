@@ -1,0 +1,130 @@
+.divCarrossel{  
+
+align-items: center;
+justify-content: center;
+display: flex;
+height: 250px;
+width: 100%;
+
+}
+
+.textMaisVendidos{
+    
+    color: rgb(184, 67, 67);
+    font-size: 20px;
+    margin-top: 40px;
+    margin-left: 90px;
+
+}
+
+.divForaMaisVendidos{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    height: 220px;
+    width: 100%;
+    /* background-color: aquamarine; */
+
+}
+
+.divDentroMaisVendidos{
+
+    justify-content: space-around;
+    align-items: center;
+    display: flex;
+    height: 230px;
+    width: 85%;
+    /* background-color: rgb(3, 12, 9); */
+
+}
+
+.divProduto{
+    
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 210px;
+    width: 200px;
+     /* background-color: rgb(199, 111, 111);  */
+
+}
+
+.divImgProduto{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    height: 140px;
+    width: 160px;
+    background-color: rgb(255, 255, 255);
+
+}
+
+.imgCocaCola{
+
+    height: 140px;
+    width: 160px;
+
+}
+.tituloProduto{
+    font-size: 12px;
+    margin-left: 20px;
+}
+
+.divTituloProduto{
+
+    align-items: center;
+    display: flex;
+    height: 17px;
+    width: 100%;
+    /* background-color: rgb(182, 95, 95); */
+
+}
+
+.divCompraProduto{
+    margin-top: 10px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    height: 28px;
+    width: 100%;
+    /* background-color: brown; */
+
+}
+
+.divQuantidade{
+    align-items: center;
+    border-style: solid;
+    display: flex;
+    flex-direction: column;
+      border-radius: 20px;
+      width: 30%;
+      height: 80%;
+      background-color: rgb(255, 255, 255);
+      border-color: #9e0000da;
+      border-width: 1px 1px 1px 1px;
+      margin-right: 3px;
+}
+
+.textValor{
+
+font-size: 18px;
+margin-right: 3px;
+}
+
+.divAdicionar{
+
+    cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #b80000;
+height: 22px;
+width: 40%;
+border-radius: 6px;
+
+}
+
+.textAdicionar{
+    color: rgb(255, 255, 255);
+    font-size: 14px;
+}
