@@ -26,7 +26,7 @@ const Register = () => {
         password,
       }
 
-      await axios.post("http://localhost:8080/users", user)
+      await axios.post("http://localhost:8090/users", user)
       navigate('/login')
     }
 

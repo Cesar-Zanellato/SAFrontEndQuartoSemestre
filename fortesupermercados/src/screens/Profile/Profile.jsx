@@ -3,36 +3,64 @@ import './Profile.css';
 import { UsuariosContext } from '../../contexts/GlobalContext';
 import axios from 'axios'
 
+
 const Profile = () => {
+    
+    
+    
+    const { usuarioLogado, setUsuarioLogado } = useContext(UsuariosContext);
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        cpf: '',
+        phone: '',
+        password: '',
+        address: '',
+        name_street: '',
+        point_reference: '',
+        complement: '',
+        cep: ''
+        // nome: 'Luigi dos Santos Bernardo',
+        // email: 'luigisantostk@gmail.com',
+        // cpf: '600.214.450-10',
+        // telefone: '(51)98457-4910',
+        // senha: '***********',
+        // nascimento: '30/01/2004',
+        // enderecoCpf: '94910-110',
+        // rua: 'Rua Imbui',
+        // referencia: 'Ao lado do MiniMercado Weber'
+    });
     const [view, setView] = useState('personal');
     const [isEditing, setIsEditing] = useState(false);
-    const [formData, setFormData] = useState({
-        nome: 'Luigi dos Santos Bernardo',
-        email: 'luigisantostk@gmail.com',
-        cpf: '600.214.450-10',
-        telefone: '(51)98457-4910',
-        senha: '***********',
-        nascimento: '30/01/2004',
-        enderecoCpf: '94910-110',
-        rua: 'Rua Imbui',
-        referencia: 'Ao lado do MiniMercado Weber'
-    });
+    
+    
+    useEffect(() => {
 
-    const { usuarioLogado, setUsuarioLogado } = useContext(UsuariosContext);
-
-
-      useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get("http://localhost:8080/users/1");
-        setUsuarioLogado(response.data);
-      } catch (error) {
-        console.error('Erro ao buscar usuário:', error);
-      }
-    };
-
-    fetchData();
-  }, []);
+        const fetchUserData = async () => {
+            try {
+                const response = await axios.get(`http://localhost:8090/users/${usuarioLogado.sub}`);
+                const user = response.data;
+                setFormData({
+                    name: user.name,
+                    email: user.email,
+                    cpf: user.cpf,
+                    phone: user.phone,
+                    password: user.password, // Não exibir a senha real
+                    name_street: user.name_street,
+                    point_reference: user.point_reference,
+                    complement: user.complement,
+                    cep: user.cep
+                });
+            } catch (error) {
+                console.error('Erro ao buscar usuário:', error);
+            }
+        };
+    if (usuarioLogado) {
+        fetchUserData();
+    }
+}, [usuarioLogado]);
+//     fetchData();
+//   }, []);
 
     // useEffect(async () => {
     //     console.log(usuarioLogado);
@@ -49,9 +77,20 @@ const Profile = () => {
         setIsEditing(!isEditing);
     };
 
-    const saveChanges = () => {
-        setIsEditing(false);
+    const saveChanges = async () => {
+        try {
+            await axios.put(`http://localhost:8090/users/${usuarioLogado.sub}`, formData);
+            setIsEditing(false);
+        } catch (error) {
+            console.error('Erro ao salvar alterações:', error);
+        }
     };
+
+    // const saveChanges = () => {
+    //     setIsEditing(false);
+    // };
+
+
 
     return (
         <div className="profile-container">
@@ -64,9 +103,9 @@ const Profile = () => {
                     <div className="info-item">
                         <label>Nome</label>
                         {isEditing ? (
-                            <input type="text" name="nome" value={formData.nome} onChange={handleInputChange} />
+                            <input type="text" name="nome" value={formData.name} onChange={handleInputChange} />
                         ) : (
-                            <span>{formData.nome}</span>
+                            <span>{formData.name}</span>
                         )}
                     </div>
                     <div className="info-item">
@@ -88,17 +127,17 @@ const Profile = () => {
                     <div className="info-item">
                         <label>Telefone</label>
                         {isEditing ? (
-                            <input type="text" name="telefone" value={formData.telefone} onChange={handleInputChange} />
+                            <input type="text" name="telefone" value={formData.phone} onChange={handleInputChange} />
                         ) : (
-                            <span>{formData.telefone}</span>
+                            <span>{formData.phone}</span>
                         )}
                     </div>
                     <div className="info-item">
                         <label>Senha</label>
                         {isEditing ? (
-                            <input type="password" name="senha" value={formData.senha} onChange={handleInputChange} />
+                            <input type="password" name="senha" value={formData.password} onChange={handleInputChange} />
                         ) : (
-                            <span>{formData.senha}</span>
+                            <span>{formData.password}</span>
                         )}
                     </div>
                     <div className="info-item">
@@ -116,27 +155,35 @@ const Profile = () => {
             ) : (
                 <div className="address-info">
                     <div className="info-item">
-                        <label>CPF</label>
+                        <label>Endereço</label>
                         {isEditing ? (
-                            <input type="text" name="enderecoCpf" value={formData.enderecoCpf} onChange={handleInputChange} />
+                            <input type="text" name="enderecoCpf" value={formData.name_street} onChange={handleInputChange} />
                         ) : (
-                            <span>{formData.enderecoCpf}</span>
+                            <span>{formData.name_street}</span>
                         )}
                     </div>
                     <div className="info-item">
-                        <label>Rua/Avenida</label>
+                        <label>Complemento</label>
                         {isEditing ? (
-                            <input type="text" name="rua" value={formData.rua} onChange={handleInputChange} />
+                            <input type="text" name="rua" value={formData.complement} onChange={handleInputChange} />
                         ) : (
-                            <span>{formData.rua}</span>
+                            <span>{formData.complement}</span>
                         )}
                     </div>
                     <div className="info-item">
                         <label>Ponto de Referência</label>
                         {isEditing ? (
-                            <input type="text" name="referencia" value={formData.referencia} onChange={handleInputChange} />
+                            <input type="text" name="referencia" value={formData.point_reference} onChange={handleInputChange} />
                         ) : (
-                            <span>{formData.referencia}</span>
+                            <span>{formData.point_reference}</span>
+                        )}
+                    </div>
+                    <div className="info-item">
+                        <label>CEP</label>
+                        {isEditing ? (
+                            <input type="text" name="referencia" value={formData.cep} onChange={handleInputChange} />
+                        ) : (
+                            <span>{formData.cep}</span>
                         )}
                     </div>
                     <div className="buttons">

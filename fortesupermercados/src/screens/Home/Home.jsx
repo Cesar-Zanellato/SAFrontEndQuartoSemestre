@@ -39,6 +39,10 @@ function Home() {
 
                     </div>
 
+                    <div className='divNumQuantidade'>
+                            
+                    </div>
+
                     <div className='botaoMenos'>
                       
                     </div>
