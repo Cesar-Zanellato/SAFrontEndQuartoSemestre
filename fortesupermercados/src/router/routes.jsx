@@ -21,6 +21,14 @@ const router = createBrowserRouter([
                     {path: "/register", element: <Register/>},
                     {path: "/shop", element: <Shop />},
                     {path: "/profile", element: <Profile />},
+                    //{path: "/alimentos", element: <StapleFoods />},
+                    //{path: "/bebidas", element: <BasicBeverages />},
+                    //{path: "/matinais", element: <Morning />},
+                    //{path: "/higiene", element: <PersonalHygiene />},
+                    //{path: "/limpeza", element: <Cleaning />},
+                    //{path: "/padaria", element: <Bakery />},
+                    //{path: "/hortifruti", element: <FruitAndVegetable />},
+                    //{path: "/acougue", element: <Butcher />},
                 ]
     },
 
