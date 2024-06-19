@@ -7,7 +7,8 @@ import { UsuariosContext } from '../../contexts/GlobalContext';
 
 
 function Header() {
-  const { usuarioLogado, setUsuarioLogado } = useContext(UsuariosContext);
+  const [usuarioLogado, setUsuarioLogado] = useContext(UsuariosContext);
+  console.log("usuario", usuarioLogado)
   const token = localStorage.getItem("token")
  
   const navigate = useNavigate()
@@ -26,7 +27,7 @@ function Header() {
     <header className="header">
       <section className="section_logo">
 
-        <Link to="/">
+        <Link to="/home">
           <img src="./public/logo_supermercado.png" alt="FORTESUPEMERCADO Logo" />
         </Link>
           
@@ -38,7 +39,7 @@ function Header() {
       <section className="section_btns_user">
 
         {/* <label htmlFor="">{!!usuarioLogado && }</label> */}
-        {usuarioLogado}
+        
         <Link to="shop">
          <img className='carrinhoIcon' src="./public/carrinho.png" alt="CARRINHO"/>
         </Link>

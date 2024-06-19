@@ -3,7 +3,8 @@ import './Register.css';
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
 
-const Register = () => {
+function Register() {
+
   const [cpf, setCpf] = useState('');
   const [phone, setPhone] = useState('');
   const [name, setName] = useState('');
@@ -12,51 +13,31 @@ const Register = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [passwordsMatch, setPasswordsMatch] = useState(true);
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const saveUser = async () => {
-    try {
-
-
-      const user = {
-        cpf,
-        name,
-        email,
-        phone,
-        password,
-      }
-
-      await axios.post("http://localhost:8090/users", user)
-      navigate('/login')
+    if (password !== confirmPassword) {
+      alert('As senhas não correspondem');
+      return;
     }
 
-    catch {
-      alert('erro')
+    try {
+      const user = { cpf, name, email, phone, password };
+      await axios.post("http://localhost:8090/users", user);
+      navigate('/login');
+    } catch (error) {
+      alert('Erro ao registrar usuário');
     }
   }
 
   const handleCpfChange = (e) => {
-    const value = e.target.value.replace(/\D/g, '');
-    if (value.length <= 11) {
-      setCpf(value);
-    }
-  };
-
-  const handleNameChange = (e) => {
-    setName(e.target.value);
-
-  };
-
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
-
+    const formattedCpf = e.target.value.replace(/\D/g, '').slice(0, 11);
+    setCpf(formattedCpf);
   };
 
   const handlePhoneChange = (e) => {
-    const value = e.target.value.replace(/\D/g, '');
-    if (value.length <= 11) {
-      setPhone(value);
-    }
+    const formattedPhone = e.target.value.replace(/\D/g, '').slice(0, 11);
+    setPhone(formattedPhone);
   };
 
   const handlePasswordChange = (e) => {
@@ -66,7 +47,7 @@ const Register = () => {
 
   const handleConfirmPasswordChange = (e) => {
     setConfirmPassword(e.target.value);
-    setPasswordsMatch(password === e.target.value);
+    setPasswordsMatch(e.target.value === password);
   };
 
   const formatCpf = (value) => {
@@ -88,7 +69,6 @@ const Register = () => {
     <div className="cadastro-container">
       <form className="cadastro-form">
 
-
         <div className="form-group">
           <label>CPF</label>
           <input
@@ -100,23 +80,20 @@ const Register = () => {
           />
         </div>
 
-
         <div className="form-group">
           <label>Nome do Responsável</label>
           <input
             type="text"
             className="form-input"
             value={name}
-            onChange={handleNameChange} />
+            onChange={(e) => setName(e.target.value)}
+          />
         </div>
-
 
         <div className="form-group">
           <label>Data de Nascimento</label>
           <input type="date" className="form-input" />
         </div>
-
-
 
         <div className="form-group">
           <label>Celular</label>
@@ -129,18 +106,15 @@ const Register = () => {
           />
         </div>
 
-
-
         <div className="form-group">
           <label>E-mail</label>
           <input
             type="email"
             className="form-input"
             value={email}
-            onChange={handleEmailChange} />
+            onChange={(e) => setEmail(e.target.value)}
+          />
         </div>
-
-
 
         <div className="form-group">
           <label>Senha</label>
@@ -151,8 +125,6 @@ const Register = () => {
             onChange={handlePasswordChange}
           />
         </div>
-
-
 
         <div className="form-group">
           <label>Confirmar Senha</label>
@@ -167,11 +139,9 @@ const Register = () => {
           <div className="error-message">Senhas não coincidem</div>
         )}
 
-
         <button onClick={saveUser} type='button' className="submit-button" disabled={!passwordsMatch}>
-          Concluir
+          Cadastrar
         </button>
-
 
       </form>
     </div>
