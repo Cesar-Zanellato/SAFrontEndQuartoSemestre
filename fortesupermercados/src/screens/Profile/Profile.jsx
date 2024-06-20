@@ -2,9 +2,10 @@ import React, { useState, useContext, useEffect } from 'react';
 import './Profile.css';
 import { UsuariosContext } from '../../contexts/GlobalContext';
 import axios from 'axios';
+import api from '../../api/api';
 
 const Profile = () => {
-  const { usuarioLogado } = useContext(UsuariosContext);
+  const [usuarioLogado, setUsuarioLogado] = useContext(UsuariosContext);
   const [formData, setFormData] = useState({
     name: '', email: '', cpf: '', phone: '', password: '', name_street: '', point_reference: '', complement: '', cep: ''
   });
@@ -13,27 +14,32 @@ const Profile = () => {
 
   useEffect(() => {
     const fetchUserData = async () => {
-      try {
-        const response = await axios.get(`http://localhost:8090/users/${usuarioLogado.sub}`);
-        const user = response.data;
-        setFormData({
-          name: user.name,
-          email: user.email,
-          cpf: user.cpf,
-          phone: user.phone,
-          password: user.password, 
-          name_street: user.name_street,
-          point_reference: user.point_reference,
-          complement: user.complement,
-          cep: user.cep
-        });
-      } catch (error) {
-        console.error('Erro ao buscar usuário:', error);
+      if (usuarioLogado?.id) { 
+        console.log("Buscando dados do usuário com ID:", usuarioLogado.id);
+        try {
+          const response = await api.get(`/users/${usuarioLogado.id}`);
+          console.log("Resposta da API:", response);
+          const user = response.data;
+          setFormData({
+            name: user.name || '',
+            email: user.email || '',
+            cpf: user.cpf || '',
+            phone: user.phone || '',
+            password: '', 
+            name_street: user.name_street || '',
+            point_reference: user.point_reference || '',
+            complement: user.complement || '',
+            cep: user.cep || ''
+          });
+        } catch (error) {
+          console.error('Erro ao buscar usuário:', error);
+        }
+      } else {
+        console.log("usuarioLogado ou ID não está definido.");
       }
     };
-    if (usuarioLogado) {
-      fetchUserData();
-    }
+
+    fetchUserData();
   }, [usuarioLogado]);
 
   const handleInputChange = (e) => {
@@ -47,7 +53,7 @@ const Profile = () => {
 
   const saveChanges = async () => {
     try {
-      await axios.put(`http://localhost:8090/users/${usuarioLogado.sub}`, formData);
+      await api.put(`/users/${usuarioLogado.id}`, formData);
       setIsEditing(false);
     } catch (error) {
       console.error('Erro ao salvar alterações:', error);
@@ -97,7 +103,7 @@ const Profile = () => {
           <div className="info-item">
             <label>Senha</label>
             {isEditing ? (
-              <input type="password" name="password" value={formData.password} onChange={handleInputChange} />
+              <input type="password" name="password" value={formData.password} onChange={handleInputChange} placeholder="Digite nova senha" />
             ) : (
               <span>{'********'}</span>
             )}

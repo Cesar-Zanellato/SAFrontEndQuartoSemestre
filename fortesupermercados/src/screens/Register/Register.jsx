@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './Register.css';
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
+import api from '../../api/api';
 
 function Register() {
 
@@ -23,7 +24,7 @@ function Register() {
 
     try {
       const user = { cpf, name, email, phone, password };
-      await axios.post("http://localhost:8090/users", user);
+      await api.post("/users", user);
       navigate('/login');
     } catch (error) {
       alert('Erro ao registrar usuário');

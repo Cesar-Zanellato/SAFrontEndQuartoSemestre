@@ -1,6 +1,4 @@
-// src/contexts/GlobalContext.jsx
 import React, { createContext, useState, useEffect } from 'react';
-import * as jwtDecode from 'jwt-decode';
 
 export const UsuariosContext = createContext();
 

@@ -8,7 +8,6 @@ import { UsuariosContext } from '../../contexts/GlobalContext';
 
 function Header() {
   const [usuarioLogado, setUsuarioLogado] = useContext(UsuariosContext);
-  console.log("usuario", usuarioLogado)
   const token = localStorage.getItem("token")
  
   const navigate = useNavigate()

@@ -5,6 +5,7 @@ import React, { useState, useContext } from 'react';
 import axios from 'axios';
 import { UsuariosContext } from '../../contexts/GlobalContext';
 import {jwtDecode} from 'jwt-decode';
+import api from '../../api/api';
 
 function Login() {
   const [, setUsuarioLogado ] = useContext(UsuariosContext);
@@ -24,24 +25,22 @@ function Login() {
   const loginUser = async () => {
     try {
       const user = { email, password };
-      const response = await axios.post("http://localhost:8090/login", user);
+      const response = await api.post("/login", user);
       const token = response.data;
 
       if (typeof token === 'string') {
         localStorage.setItem('token', token);
-        console.log(token);
         const userData = decodeToken(token);
         console.log(userData);
 
         if (userData) {
           setUsuarioLogado(userData);   
-          console.log("Rodei depois do setUsuarioLogado")
           navigate('/home');
         } else {
-          alert('1Erro ao fazer login. Token inválido.');
+          alert('Erro ao fazer login. Token inválido.');
         }
       } else {
-        alert('2Erro ao fazer login. Token inválido.');
+        alert('Erro ao fazer login. Token inválido.');
       }
     } catch (error) {
       console.log("error: " , error)
