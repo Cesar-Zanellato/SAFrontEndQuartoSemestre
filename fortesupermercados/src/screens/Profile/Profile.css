@@ -1,10 +1,11 @@
 .profile-container {
-  width: 50%;
-  margin: auto;
+  width: 35%;
+  height:400px;
+  
   padding: 20px;
   border: 4px solid #c62828;
   border-radius: 10px;
-  min-height: 400px; 
+  
   display: flex;
   flex-direction: column;
   margin-top: 3%;
@@ -35,10 +36,32 @@
 }
 
 .personal-info {
+  width: 100%;
+  height: 80%;
+  /* background-color: #ffffff; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.centro{
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
-}
+  /* background-color: #b71c1c; */
+  }
+
+  .divBotao{
+  gap: 4px;
+  width: 83.2%;
+  height: 80%;
+  /* background-color: rgb(31, 99, 158); */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  }
 
 .address-info {
   text-align: center;
@@ -79,4 +102,11 @@
 .buttons button:hover {
   background-color: #b71c1c;
 }
+
+.textSubtitulo{
+
+  color: #b71c1c;
+}
+
+
 

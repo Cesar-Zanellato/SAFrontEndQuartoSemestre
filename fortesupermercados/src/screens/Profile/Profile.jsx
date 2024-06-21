@@ -61,61 +61,94 @@ const Profile = () => {
   };
 
   return (
-    <div className="profile-container">
+    
+    <div className="container">
+      <div className="profile-container">
+
+      
       <div className="tabs">
         <span className={view === 'personal' ? 'active' : ''} onClick={() => setView('personal')}>Dados Pessoais</span>
         <span className={view === 'address' ? 'active' : ''} onClick={() => setView('address')}>Endereço</span>
       </div>
+      
       {view === 'personal' ? (
+        
         <div className="personal-info">
-          <div className="info-item">
-            <label>Nome</label>
+
+          <div className='centro'>
+
+            <div className="info-item">
+            <label className='textSubtitulo'>Nome</label>
             {isEditing ? (
               <input type="text" name="name" value={formData.name} onChange={handleInputChange} />
             ) : (
               <span>{formData.name}</span>
             )}
-          </div>
-          <div className="info-item">
-            <label>Email</label>
+            </div>
+            <div className="info-item">
+            <label className='textSubtitulo'>Email</label>
             {isEditing ? (
               <input type="email" name="email" value={formData.email} onChange={handleInputChange} />
             ) : (
               <span>{formData.email}</span>
             )}
-          </div>
-          <div className="info-item">
-            <label>CPF</label>
+            </div>
+            <div className="info-item">
+            <label className='textSubtitulo'>CPF</label>
             {isEditing ? (
               <input type="text" name="cpf" value={formData.cpf} onChange={handleInputChange} />
             ) : (
               <span>{formData.cpf}</span>
             )}
-          </div>
-          <div className="info-item">
-            <label>Telefone</label>
+            </div>
+            <div className="info-item">
+            <label className='textSubtitulo'>Telefone</label>
             {isEditing ? (
               <input type="text" name="phone" value={formData.phone} onChange={handleInputChange} />
             ) : (
               <span>{formData.phone}</span>
             )}
-          </div>
-          <div className="info-item">
-            <label>Senha</label>
+            </div>
+            <div className="info-item">
+            <label className='textSubtitulo'>Senha</label>
             {isEditing ? (
               <input type="password" name="password" value={formData.password} onChange={handleInputChange} placeholder="Digite nova senha" />
             ) : (
               <span>{'********'}</span>
             )}
+            </div>
           </div>
-          <div className="buttons">
-            <button onClick={isEditing ? saveChanges : toggleEdit}>{isEditing ? 'Salvar' : 'Editar'}</button>
+
+          <div className='divBotao'>
+
+          {isEditing ? (
+              <div className="buttons">
+                <button onClick={isEditing ? saveChanges : toggleEdit}>{isEditing ? 'Salvar' : 'Editar'}</button>
+              </div>
+            ) : (
+              <>
+                 <div className="buttons">
+                   <button onClick={isEditing ? saveChanges : toggleEdit}>{isEditing ? 'Salvar' : 'Editar'}</button>
+                 </div>
+
+                <div className="buttons">
+                  <button>Excluir</button>
+                </div>
+              </>
+              
+            )}
+            
+            
+
+            
+
           </div>
+          
         </div>
       ) : (
         <div className="address-info">
           <div className="info-item">
-            <label>Endereço</label>
+            <label className='textSubtitulo'>Endereço</label>
             {isEditing ? (
               <input type="text" name="name_street" value={formData.name_street} onChange={handleInputChange} />
             ) : (
@@ -123,7 +156,7 @@ const Profile = () => {
             )}
           </div>
           <div className="info-item">
-            <label>Complemento</label>
+            <label className='textSubtitulo'>Complemento</label>
             {isEditing ? (
               <input type="text" name="complement" value={formData.complement} onChange={handleInputChange} />
             ) : (
@@ -131,7 +164,7 @@ const Profile = () => {
             )}
           </div>
           <div className="info-item">
-            <label>Ponto de Referência</label>
+            <label className='textSubtitulo'>Ponto de Referência</label>
             {isEditing ? (
               <input type="text" name="point_reference" value={formData.point_reference} onChange={handleInputChange} />
             ) : (
@@ -139,7 +172,7 @@ const Profile = () => {
             )}
           </div>
           <div className="info-item">
-            <label>CEP</label>
+            <label className='textSubtitulo'>CEP</label>
             {isEditing ? (
               <input type="text" name="cep" value={formData.cep} onChange={handleInputChange} />
             ) : (
@@ -149,8 +182,10 @@ const Profile = () => {
           <div className="buttons">
             <button onClick={isEditing ? saveChanges : toggleEdit}>{isEditing ? 'Salvar' : 'Editar'}</button>
           </div>
+
         </div>
       )}
+      </div>
     </div>
   );
 };
