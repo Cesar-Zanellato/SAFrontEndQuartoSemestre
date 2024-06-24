@@ -1,6 +1,9 @@
 import React from 'react'
 import './Home.css'
+import CardProduto from '../../components/CardProduto/CardProduto.jsx'
 function Home() {
+
+
 
 
   return (
@@ -17,44 +20,7 @@ function Home() {
         
         <div className='divDentroMaisVendidos'>
 
-          <div className='divProduto'>
-
-              <div className='divImgProduto'>
-
-                  <img className='imgCocaCola' src="coca_cola.png" alt="" />
-
-              </div>
-
-              <div className='divTituloProduto'>
-
-                <p className='tituloProduto'>Refrigerante Coca-Cola 2L</p>
-
-              </div>
-
-              <div className='divCompraProduto'>
-                <p className='textValor'>9,99</p>
-                  <div className='divQuantidade'>
-
-                    <div className='botaoMais'>
-
-                    </div>
-
-                    <div className='divNumQuantidade'>
-                            
-                    </div>
-
-                    <div className='botaoMenos'>
-                      
-                    </div>
-
-                  </div>
-
-                  <div className='divAdicionar'>
-                    <p className='textAdicionar'>Adicionar</p>
-                  </div>
-              </div>
-            
-          </div>
+         <CardProduto></CardProduto>
 
           <div className='divProduto'>
 
