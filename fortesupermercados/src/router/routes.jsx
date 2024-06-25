@@ -11,23 +11,24 @@ import Categories from "../screens/Categories/Categories"
 
 const router = createBrowserRouter([
 
-    { 
-      path: "/",
-      element: <App />,
-      errorElement: <Erro/>,
-      children:[
-                    {path: "/home", element: <Home/>},
-                    {path: "/login", element: <Login/>},
-                    {path: "/register", element: <Register/>},
-                    {path: "/shop", element: <Shop />},
-                    {path: "/profile", element: <Profile />},
-                    {path: "/alimentos", element: <Categories />}
-                    
-                    
-                ]
+    {
+        path: "/",
+        element: <App />,
+        errorElement: <Erro/>,
+        children: [
+            
+            { path: "/login", element: <Login /> },
+            { path: "/home", element: <Home /> },
+            { path: "/register", element: <Register /> },
+            { path: "/shop", element: <Shop /> },
+            { path: "/profile", element: <Profile /> },
+            { path: "/alimentos", element: <Categories /> }
+
+
+        ]
     },
 
-    
+
 
 ])
 

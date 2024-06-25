@@ -1,10 +1,24 @@
-import React from 'react'
 import './Home.css'
 import CardProduto from '../../components/CardProduto/CardProduto.jsx'
+import { useState, useEffect, useContext } from 'react';
+import { UsuariosContext } from '../../contexts/GlobalContext.jsx';
+import api from '../../api/api.jsx';
+import { useNavigate } from 'react-router-dom';
+
+
 function Home() {
+  const [usuarioLogado, setUsuarioLogado] = useContext(UsuariosContext);
+  const navigate = useNavigate()
+  
+  useEffect(() => {
+    console.log("ssssss"+ usuarioLogado)
+    if(usuarioLogado == null ){
+      alert("Ele é nulo")
+      navigate("/login")
+    }
 
 
-
+}, []);
 
   return (
     <>
@@ -17,10 +31,10 @@ function Home() {
       <h1 className='textMaisVendidos'>Mais Vendidos</h1>
 
       <div className='divForaMaisVendidos'>
-        
+
         <div className='divDentroMaisVendidos'>
 
-         <CardProduto></CardProduto>
+          <CardProduto></CardProduto>
 
           <div className='divProduto'>
 
@@ -38,7 +52,7 @@ function Home() {
 
           </div>
 
-          
+
 
         </div>
 
@@ -46,7 +60,7 @@ function Home() {
     </>
 
 
-    
+
   )
 }
 
