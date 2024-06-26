@@ -33,7 +33,7 @@ function CardProduto() {
                         <div className='divImgProduto'>
 
                             <div className='divImgProdutoDiv'>
-                                <img className='imgCocaCola' src={`ALIMENTOS_BASICOS/${product.image}`} alt="" />
+                                <img className='imgCocaCola' src={`/ALIMENTOS_BASICOS/${product.image}.png`} alt={`${product.name}`} />
                             </div>
 
                         </div>
