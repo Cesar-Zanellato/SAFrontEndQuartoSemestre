@@ -3,10 +3,12 @@ import './Profile.css';
 import { UsuariosContext } from '../../contexts/GlobalContext';
 import axios from 'axios';
 import api from '../../api/api';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
+
 
 const Profile = () => {
 
+  const navigate = useNavigate()
   const [name_street, setName_street] = useState('');
   const [complement, setComplement] = useState('');
   const [point_reference, setPoint_reference] = useState('');
@@ -42,6 +44,7 @@ const Profile = () => {
       const address = { name_street, complement, point_reference, cep};
       await api.post("/address", address);
       
+      
     } catch (error) {
       console.log(address)
       alert('Erro ao salvar o endereço');
@@ -57,13 +60,14 @@ const Profile = () => {
 
   useEffect(() => {
     const fetchUserData = async () => {
+      console.log("Teste = " + usuarioLogado)
       if (usuarioLogado?.id) {
-        console.log("Buscando dados do usuário com ID:", usuarioLogado.id);
+        
         try {
           const response = await api.get(`/users/${usuarioLogado.id}`);
-          console.log("Resposta da API:", response);
+          
           const user = response.data;
-          console.log("sssssssssfddff" + user)
+         
           setFormData({
             name: user.name || '',
             email: user.email || '',
@@ -104,6 +108,21 @@ const Profile = () => {
     }
   };
 
+  const excluir = async () => {
+    try {
+      await api.delete(`/users/${usuarioLogado.id}`);
+      setIsEditing(false);
+      localStorage.clear();
+      navigate("/login")
+
+    } catch (error) {
+      console.error('Erro ao excluir:', error);
+    }
+  };
+
+  
+  
+
 
   return (
 
@@ -130,6 +149,8 @@ const Profile = () => {
                   <span>{formData.name}</span>
                 )}
               </div>
+
+
               <div className="info-item">
                 <label className='textSubtitulo'>Email</label>
                 {isEditing ? (
@@ -138,6 +159,8 @@ const Profile = () => {
                   <span>{formData.email}</span>
                 )}
               </div>
+
+
               <div className="info-item">
                 <label className='textSubtitulo'>CPF</label>
                 {isEditing ? (
@@ -146,6 +169,8 @@ const Profile = () => {
                   <span>{formData.cpf}</span>
                 )}
               </div>
+
+
               <div className="info-item">
                 <label className='textSubtitulo'>Telefone</label>
                 {isEditing ? (
@@ -154,6 +179,8 @@ const Profile = () => {
                   <span>{formData.phone}</span>
                 )}
               </div>
+
+              
               <div className="info-item">
                 <label className='textSubtitulo'>Senha</label>
                 {isEditing ? (
@@ -177,7 +204,7 @@ const Profile = () => {
                   </div>
 
                   <div className="buttons">
-                    <button>Excluir</button>
+                    <button onClick={excluir}>Excluir</button>
                   </div>
                 </>
 
@@ -249,7 +276,7 @@ const Profile = () => {
             </div>
 
             <div className="buttons">
-              <button onClick={ saveAddress() && isEditing ? saveChanges : toggleEdit}>{isEditing ? 'Salvar' : 'Editar'}</button>
+              <button onClick={ isEditing ? saveChanges : toggleEdit}>{isEditing ? 'Salvar' : 'Editar'}</button>
             </div>
 
           </div>
@@ -257,6 +284,6 @@ const Profile = () => {
       </div>
     </div>
   );
-};
+              };
 
 export default Profile;

@@ -10,15 +10,7 @@ function Home() {
   const [usuarioLogado, setUsuarioLogado] = useContext(UsuariosContext);
   const navigate = useNavigate()
   
-  useEffect(() => {
-    console.log("ssssss"+ usuarioLogado)
-    if(usuarioLogado == null ){
-      alert("Ele é nulo")
-      navigate("/login")
-    }
 
-
-}, []);
 
   return (
     <>
