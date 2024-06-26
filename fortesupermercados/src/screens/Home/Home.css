@@ -1,3 +1,4 @@
+
 .divCarrossel{  
 
 align-items: center;
@@ -17,34 +18,42 @@ width: 100%;
 
 }
 
-.divForaMaisVendidos{
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    height: 220px;
+.body{
+
     width: 100%;
-    /* background-color: aquamarine; */
+    min-height: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
 }
+.containerCarrossel{
+    
+    max-width: 85vw;
+   
+    
+}
 
-.divDentroMaisVendidos{
+.containerCarrossel .carrossel{
 
-    justify-content: space-around;
-    align-items: center;
+   
+    
     display: flex;
-    height: 230px;
-    width: 85%;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+ 
     /* background-color: rgb(3, 12, 9); */
 
 }
 
-.divProduto{
+.containerCarrossel .carrossel .divProduto{
     
     align-items: center;
     display: flex;
     flex-direction: column;
     height: 210px;
     width: 200px;
+    margin: 10px;
      /* background-color: rgb(199, 111, 111);  */
 
 }
@@ -57,6 +66,40 @@ width: 100%;
     width: 160px;
     background-color: rgb(255, 255, 255);
 
+}
+
+.buttonsSeta button{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.buttonsSeta{
+width: 100%;
+text-align: center;
+}
+
+.setaEsquerda{
+    transform: rotate(180deg);
+    height: 35px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+.setaDireita{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    height: 35px;
+}
+button{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.carrossel::-webkit-scrollbar{
+    display: none;
 }
 
 .imgCocaCola{

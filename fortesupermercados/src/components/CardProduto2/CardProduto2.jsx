@@ -1,8 +1,8 @@
-import './CardProduto.css'
+import './CardProduto2.css'
 import { useState, useEffect } from 'react';
 
 import api from '../../api/api';
-function CardProduto() {
+function CardProduto2() {
 
 
     const [produtos, setProdutos] = useState([]);
@@ -10,7 +10,7 @@ function CardProduto() {
 
     useEffect(() => {
         try {
-            api.get("/categories/1/products").then(response => {
+            api.get("/categories/3/products").then(response => {
                 setProdutos(response.data);
                 console.log(produtos)
             });
@@ -65,6 +65,6 @@ function CardProduto() {
 
 }
 
-export default CardProduto;
+export default CardProduto2;
 
 
