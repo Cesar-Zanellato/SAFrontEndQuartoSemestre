@@ -69,7 +69,7 @@ function Home() {
           </body>
 
 
-          <h1 className='textMaisVendidos'>Mais Vendidos</h1>
+          <h1 className='textMaisVendidos'>Promossões</h1>
 
           <body className='body'>
           <button onClick={hendleReftClick2}><img className='setaEsquerda' src="./public/seta.png" alt="" /></button>
